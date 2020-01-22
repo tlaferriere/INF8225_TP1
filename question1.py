@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib as plt
-
 # _________________________________________________Question 1___________________________________________________________
 
 prob_pluie = np.array([0.8, 0.2]).reshape(2, 1, 1, 1)
@@ -69,5 +67,5 @@ print("Pr(Watson=1|Holmes=1)={}\n".format(np.squeeze(watson1_holmes1)))
 # On cherche Pr(W=1|H=1,A=1)
 #  Pr(W=1|H=1,A=1) = Pr(W=1|H=1)*P(A=1) ... pas sur
 
-watson1_holmes1_A1 = watson1_holmes1 * prob_arroseur[1]
+watson1_holmes1_A1 = watson1_holmes1 * 0.1
 print("Pr(Watson=1|Holmes=1)={}\n".format(np.squeeze(watson1_holmes1_A1)))
