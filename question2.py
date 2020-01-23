@@ -5,20 +5,27 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 digits = datasets.load_digits()
+# ____________________________visualizing digits_______________________________________________
+print(digits.data.shape)
+
+plt.gray()
+plt.matshow(digits.images[0])
+plt.show
 
 X = digits.data
 
 y = digits.target
 
 y_one_hot = np.zeros((y.shape[0], len(np.unique(y))))
-y_one_hot[np.arange(y.shape[0]), y] = 1  # one hot target or shapeNxK
+y_one_hot[np.arange(y.shape[0]), y] = 1  # one hot target or shape NxK
 
-X_train, X_test, y_train, y_test = train_test_split(X, y_one_hot, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y_one_hot,
+                                                    test_size=0.3, random_state=42)
 
-X_test, X_validation, y_test, y_validation = train_test_split(X_test, y_test, test_size=0.5,
-                                                              random_state=42)
+X_test, X_validation, y_test, y_validation = train_test_split(X_test, y_test,
+                                                              test_size=0.5, random_state=42)
 
-W = np.random.normal(0, 0.01, (len(np.unique(y)), X.shape[1]))  # weights of shapeKxL
+W = np.random.normal(0, 0.01, (len(np.unique(y)), X.shape[1]))  # weights of shape KxL
 
 best_W = None
 best_accuracy = 0
@@ -32,7 +39,7 @@ accuracies = []
 
 def softmax(x):
     # assurez vous que la fonction est numeriquement stable
-    # e.g. softmax(np.array([1000,1000,10000],ndim=2))
+    # e.g. softmax(np.array([1000, 1000, 10000], ndim=2))
     pass
 
 
